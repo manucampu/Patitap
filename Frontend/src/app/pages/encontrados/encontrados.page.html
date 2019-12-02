@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/principal"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Mascotas Encontradas</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="danger" href="/add-perdido">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-list>
+      
+     <ion-item-sliding *ngFor="let item of _data2.perdidos">
+          <ion-item-options color="danger" side="end">
+              <ion-item-option color="danger" (click)="actualizarEstado(item)" >Perdida</ion-item-option>
+            </ion-item-options>
+            <ion-item >
+        <ion-label>
+          <h2>{{ item.nombre }}</h2>
+          <h3>Tipo: {{ item.tipo }}, Sexo: {{ item.sexo }}</h3>
+          <h3>Raza: {{ item.raza }}</h3>
+          <p>Extraviado en: {{ item.lugar }}</p>
+        </ion-label>
+        <ion-avatar slot="start">
+            <img src="../../../assets/perro1.jpg">
+          </ion-avatar>
+      </ion-item>
+     
+    </ion-item-sliding>
+    
+   </ion-list>
+
+</ion-content>
